@@ -1,0 +1,12 @@
+- name: fetch file from m1
+  hosts: 13.250.122.119
+  tasks:
+  - fetch:
+      src: /etc/passwd
+      dest: .
+- name: copy form host machine
+  hosts: 54.179.76.161
+  tasks:
+  - copy:
+      src: ./13.250.122.119/etc/passwd
+      dest: /tmp	  

@@ -1,0 +1,14 @@
+---
+-  name: Installing 3 software using with items
+   hosts: all
+   become: yes
+   tasks: 
+   -  name: Installing software
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+      -  apache2
+      -  awscli
+      -  tree      

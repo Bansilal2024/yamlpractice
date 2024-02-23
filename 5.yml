@@ -1,0 +1,20 @@
+---
+-  name: Installing 3 software using with items
+   hosts: all
+   become: yes
+   tasks: 
+   -  name: Installing software
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+      -  apache2
+      -  awscli
+      -  tree
+   -  name: aws version
+      shell: "aws --version"
+      register: x
+   -  name: To print msg
+      debug:
+        msg: "{{ x }}"      

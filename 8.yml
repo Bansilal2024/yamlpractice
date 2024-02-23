@@ -1,0 +1,13 @@
+---
+- name: fetch file from m1
+  hosts: 10.0.3.110
+  tasks:
+  - fetch:
+      src: /etc/passwd
+      dest: .
+- name: copy form host machine
+  hosts: 10.0.3.88
+  tasks:
+  - copy:
+      src: ./10.0.3.110/etc/passwd
+      dest: /tmp	  

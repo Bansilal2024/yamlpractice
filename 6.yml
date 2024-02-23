@@ -1,0 +1,14 @@
+---
+-  name: To create a user
+   hosts: all
+   become: yes
+   tasks:
+   -  user:
+        name: "{{ item.name }}"
+        shell: /bin/bash
+        state: "{{ item.state }}"
+      with_items:
+      - { name: "bansi",state: "present" }
+      - { name: "sheshi",state: "absent" }
+      - { name: "xyz",state: "present" }
+      - { name: "raghu",state: "present" }
