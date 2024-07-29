@@ -6,3 +6,4 @@ elif b>a:
     print("second number is greater")
 else:
     print("Both are equal")
+print("Bye")    
